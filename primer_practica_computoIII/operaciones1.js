@@ -1,26 +1,51 @@
-const {sum, rest, multi, div}= require('./operaciones.js');
 const op = require(`readline`).createInterface({
     input: process.stdin,
     output: process.stdout,
 });
 
 
-op.question("que operacion desea realizar: 1.suma 2. resta",op);
-if (op == 1){
-console.log("ingrese los el primer numero",a);
-console.log("ingrese el segundo numero", b);
+console.log("suma");
+console.log("resta");
+console.log("multiplicar");
+console.log("dividir");
+console.log("cancelar");
 
+op.question("que operacion desea realizar: ", operations =>{
+   
+    if (operations == 'suma'){
 
-    const result = sum(a,b);
-
-    console.log("el resultado de la suma es: ", result);
-    
-} else if (op == 2) {
-        console.log("ingrese los el primer numero",a);
-        console.log("ingrese el segundo numero", b);
-
-
-    const result = rest(a,b);
-
-    console.log("el resultado de la resta es: ", result);
-    }
+        op.question("ingrese el primer numero: ", num1 =>{
+            op.question("ingrese el segundo numero: ", num2 =>{
+                
+                const suma= parseFloat(num1) + parseFloat(num2);
+                console.log("el resultado de la suma es: ", suma);
+            })
+        });  
+        } else if (operations == 'resta') {
+        
+            op.question("ingrese el primer numero: ", num1 =>{
+                op.question("ingrese el segundo numero: ", num2 =>{
+                    
+                    const resta= parseFloat(num1) - parseFloat(num2);
+                    console.log("el resultado de la resta es: ", resta);
+                })
+            });
+            }else if (operations == 'multiplicar'){
+                op.question("ingrese el primer numero: ", num1 =>{
+                    op.question("ingrese el segundo numero: ", num2 =>{
+                        
+                        const multi=parseFloat(num1) * parseFloat(num2);
+                        console.log("el resultado de la multiplicacion es: ", multi);
+                    })
+                });
+            }else if (operations == 'dividir'){
+                op.question("ingrese el primer numero: ", num1 =>{
+                    op.question("ingrese el segundo numero: ", num2 =>{
+                        
+                        const div=parseFloat(num1) / parseFloat(num2);
+                        console.log("el resultado de la division es: ", div);
+                    })
+                });
+            }
+        
+})
